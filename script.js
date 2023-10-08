@@ -105,3 +105,8 @@ function reverseTree(pos, initial, visited, arr = []) {
 let knight = new Knight();
 
 knight.knightMoves([6, 5], [1, 3]);
+//You made it in 3 moves. Here's your path:
+// [6, 5]
+// [5, 3]
+// [3, 4]
+// [1, 3]
