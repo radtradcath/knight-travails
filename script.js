@@ -52,7 +52,16 @@ class Knight {
         );
         let path = reverseTree(position, sequence[0], untilFinal);
         path.unshift(final);
-        return path;
+
+        let reversed = [];
+        for (let i = path.length - 1; i >= 0; i--) {
+          reversed.push(path[i]);
+        }
+        console.log(`You made it in ${moves} moves. Here's your path:`);
+        reversed.forEach((pos) => {
+          console.log(pos);
+        });
+        return;
       }
 
       for (let edge of initialEdges) {
@@ -63,7 +72,7 @@ class Knight {
       }
       queue.shift();
 
-      this.knightMoves(position, final, queue, sequence);
+      return this.knightMoves(position, final, queue, sequence);
     }
   }
 }
@@ -74,7 +83,7 @@ function reverseTree(pos, initial, visited, arr = []) {
   if (pos[0] === initial[0] && pos[1] === initial[1]) {
     return moves;
   }
-  
+
   for (let i = 0; i < posEdges.length; i++) {
     if (isIncluded(visited, posEdges[i])) {
       moves.push(posEdges[i]);
@@ -95,4 +104,4 @@ function reverseTree(pos, initial, visited, arr = []) {
 
 let knight = new Knight();
 
-console.log(knight.knightMoves([3, 4], [3, 2]));
+knight.knightMoves([6, 5], [1, 3]);
